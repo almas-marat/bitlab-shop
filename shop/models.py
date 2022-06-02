@@ -4,12 +4,12 @@ class Category(models.Model):
     name = models.CharField(verbose_name='Имя категории', max_length=50, unique=True)
 
     def __str__(self):
-        return f"{self.id} | {self.name}"
+        return self.name
 
 class Product(models.Model):
     title = models.CharField('Название продукта', max_length=50)
     price = models.IntegerField('Цена')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    cat = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.title
