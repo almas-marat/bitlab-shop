@@ -10,6 +10,10 @@ from .models import Category, Product
 class ProductSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=50)
     price = serializers.IntegerField()
+    pk = serializers.IntegerField()
+
+    # class Meta:
+    #     fields = ('pk', 'title', 'price')
 
     def create(self, validated_data):
         return Product.objects.create(**validated_data)

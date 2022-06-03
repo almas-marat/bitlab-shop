@@ -12,4 +12,4 @@ class Product(models.Model):
     cat = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.title
+        return str(self.pk) + ') ' + self.title
